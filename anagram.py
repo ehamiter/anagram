@@ -1,5 +1,4 @@
 import argparse
-import sys
 
 
 def anagramchk(word,chkword):
