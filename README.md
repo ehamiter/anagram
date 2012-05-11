@@ -16,3 +16,12 @@ optional arguments:
     -s, --starts   : Generates words starting with this letter
     -e, --ends     : Generates words ending with this letter
     -r, --required : Generates words that must have this letter or letters
+
+example:
+
+    $ python anagram.py -l reetyquiop -m 4 -s r -r q
+    
+    reequip
+    requite
+    roque
+    roquet
