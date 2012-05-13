@@ -25,3 +25,12 @@ example:
     requite
     roque
     roquet
+
+anagram-gui.py
+==============
+
+Anagram generator with a GUI for alternative input methods using easygui
+
+![Anagram-gui screenshot](https://github.com/ehamiter/anagram/raw/master/anagram-gui.png "Anagram GUI")
+
+Requires `easygui` which can be obtained from [http://easygui.sourceforge.net/download/index.html](http://easygui.sourceforge.net/download/index.html)
