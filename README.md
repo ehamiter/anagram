@@ -11,11 +11,13 @@ mandatory agrument:
 
 optional arguments:
 
-    -h, --help     : show help message and exit 
-    -m, --min      : Minimum amount of letters in anagram
-    -s, --starts   : Generates words starting with this letter
-    -e, --ends     : Generates words ending with this letter
-    -r, --required : Generates words that must have this letter or letters
+    -h, --help      : show help message and exit 
+    -m, --min       : Minimum amount of letters in anagram
+    -s, --starts    : Generates words starting with this letter
+    -e, --ends      : Generates words ending with this letter
+    -r, --required  : Generates words that must have this letter or letters
+    --limit         : The maximum number of words you want to see (Default: 5)
+    -u, --unordered : Leave the output in alphabetical order
 
 example:
 
@@ -23,8 +25,8 @@ example:
     
     reequip
     requite
-    roque
     roquet
+    roque
 
 anagram-gui.py
 ==============
