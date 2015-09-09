@@ -16,7 +16,7 @@ optional arguments:
     -s, --starts    : Generates words starting with this letter
     -e, --ends      : Generates words ending with this letter
     -r, --required  : Generates words that must have this letter or letters
-    --limit         : The maximum number of words you want to see (Default: 5)
+    --limit         : The maximum number of words you want to see (Default: unlimited)
     -u, --unordered : Leave the output in alphabetical order
 
 example:

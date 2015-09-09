@@ -1,5 +1,6 @@
 import argparse
 
+
 def anagramchk(word,chkword):
     for letter in word:
         if letter in chkword:
@@ -8,7 +9,7 @@ def anagramchk(word,chkword):
             return 0
     return 1
 
-def hasAllRequired(word,required):
+def has_all_required(word,required):
     for letter in required:
         if letter not in word:
             return False
@@ -42,7 +43,7 @@ def solve(opts):
 
             if opts['required']:
                 for word in words:
-                    if not hasAllRequired(word, opts['required']):
+                    if not has_all_required(word, opts['required']):
                         words.remove(word)
 
             if not opts['unordered']:
@@ -63,7 +64,7 @@ parser.add_argument('-s','--starts', help='Generates words starting with this le
 parser.add_argument('-e','--ends', help='Generates words ending with this letter', required=False)
 parser.add_argument('-r','--required', help='Generates words that must have this letter or letters', required=False)
 parser.add_argument('-u', '--unordered', action='store_true', help='Leave the output in alphabetical order', required=False)
-parser.add_argument('--limit', help='The maximum number of words you want to see', default=5, required=False)
+parser.add_argument('--limit', help='The maximum number of words you want to see', default=0, required=False)
 args = vars(parser.parse_args())
 
 solve(args)
