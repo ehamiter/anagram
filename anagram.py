@@ -21,36 +21,28 @@ def solve(opts):
     words = []
 
     for line in f:
-        line=line.strip()
+        word=line.strip()
 
-        if anagramchk(line,opts['letters']):
-            words.append(line)
+        if opts['min'] and not len(word)>=int(opts['min']):
+            continue
 
-            if opts['min']:
-                for word in words:
-                    if not len(word)>=int(opts['min']):
-                        words.remove(word)
-                
-            if opts['starts']:
-                for word in words:
-                    if word[0] != opts['starts']:
-                        words.remove(word)
-            
-            if opts['ends']:
-                for word in words:
-                    if word[-1] != opts['ends']:
-                        words.remove(word)
+        if opts['starts'] and word[0] != opts['starts']:
+            continue
 
-            if opts['required']:
-                for word in words:
-                    if not has_all_required(word, opts['required']):
-                        words.remove(word)
+        if opts['ends'] and word[-1] != opts['ends']:
+            continue
 
-            if not opts['unordered']:
-                words.sort(key=len, reverse=True)
+        if opts['required'] and not has_all_required(word, opts['required']):
+            continue
 
-            if opts['limit']:
-                words=words[:int(opts['limit'])]
+        if anagramchk(word,opts['letters']):
+            words.append(word)
+
+    if not opts['unordered']:
+        words.sort(key=len, reverse=True)
+
+    if opts['limit']:
+        words=words[:int(opts['limit'])]
         
     for word in words:
         print(word)
