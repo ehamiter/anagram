@@ -21,6 +21,9 @@ def solve(word_list, params, opts):
     words = []
 
     for word in word_list:
+        if opts['limit'] and len(words) >= opts['limit']:
+            break
+
         if (params['min'] or opts['min']) and not len(word)>=int(params['min'] or opts['min']):
             continue
 
@@ -35,12 +38,6 @@ def solve(word_list, params, opts):
 
         if anagramchk(word,params['letters']):
             words.append(word)
-
-    if not opts['unordered']:
-        words.sort(key=len, reverse=True)
-
-    if opts['limit']:
-        words=words[:int(opts['limit'])]
         
     for word in words:
         print(word)
@@ -48,7 +45,7 @@ def solve(word_list, params, opts):
 run_parser = argparse.ArgumentParser(description='Anagram generator that continues to run and allows for reuse')
 run_parser.add_argument('-m','--min', help='Minimum amount of letters in anagram, can be overwritten in the REPL', required=False)
 run_parser.add_argument('-u', '--unordered', action='store_true', help='Leave the output in alphabetical order', required=False)
-run_parser.add_argument('--limit', help='The maximum number of words you want to see', default=0, required=False)
+run_parser.add_argument('--limit', help='The maximum number of words you want to see', default=0, type=int, required=False)
 args = vars(run_parser.parse_args())
 
 prompt_parser = argparse.ArgumentParser(prog='')
@@ -64,6 +61,8 @@ f=open('wordlist.txt', 'r')
 for line in f:
     all_words.append(line.strip())
 f.close()
+if not args['unordered']:
+    all_words.sort(key=len, reverse=True)
 
 while True:
     text = raw_input("--> ")
