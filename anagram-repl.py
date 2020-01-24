@@ -65,7 +65,7 @@ if not args['unordered']:
     all_words.sort(key=len, reverse=True)
 
 while True:
-    text = raw_input("--> ")
+    text = input("--> ").lower()
     if text == "exit":
         break
     if text == "help":
